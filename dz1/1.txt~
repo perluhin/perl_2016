@@ -1,2 +1,0 @@
-ls -l | perl -ane ' foreach my $i (0 .. $#F){if($i<8){print $F[$i].";";}else{print $F[$i]." " }  } print "\n"' > text.txt
-

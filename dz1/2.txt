@@ -1,0 +1,1 @@
+perl -e ' open(F1,"text.txt");$line=<F1>;$=0; while($line){@line=split(/;/,$line);if( $line[4]>1048576){print $line[8],"\n";$j++; }; $line = <F1>;$i++; } print "all:$i \n >1Mb:$j\n" '
