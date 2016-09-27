@@ -1,2 +1,2 @@
-cat text.txt | perl -e 'use Data::Dumper; my $list=[]; while(<>){my @local_list=[];@line=split(/;/,$_);chomp($line[8]);push($local_list[0],@line);push($list,@local_list);} print Dumper($list)'
+cat text.txt | perl -naF';' -e 'my @local_list=[];chomp($F[8]);push($local_list[0],@F);push($list,@local_list); BEGIN{use Data::Dumper;$list=[]};END{print Dumper($list)}  '
 

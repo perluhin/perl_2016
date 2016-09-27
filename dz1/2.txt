@@ -1,1 +1,2 @@
-cat text.txt | perl -e '$i=0;$j=0;while(<>){@F=split(/;/,$_);if($F[4]>1048576){print $line[8],"\n";$j++;}$i++; }print "all:$i \n >1Mb:$j\n" '
+ cat text.txt | perl -naF';' -e 'if($F[4]>1048576){print $F[8],"\n"; $j++;}$i++; }{ print "all:",$i,"\n";if($j){print ">1Mb:",$j,"\n"}else{print ">1Mb:0\n"}'
+
