@@ -1,0 +1,484 @@
+For more help, type h cmd_letter, or run man perldebug for all docs.
+  DB<1> l
+3==>	open(F1,"text.txt");
+4:	my $list= [];
+5:	$line=<F1>;
+	#убираю первую строчку из вывода - Итого 9672
+	$line=<F1>;
+6:	while($line){
+7:		my @local_list = [];
+8 		
+9:		@line=split(/;/,$line);
+10 		#удаляем \n
+  DB<1> l 
+11:		if($line[8]){	
+12:			chomp($line[8]);  
+13 		}
+14:		push $local_list[0],@line;	
+15:		push($list,@local_list);
+16 		
+17:		$line = <F1>;
+18 	}
+19:	print Dumper($list);
+  DB<1> b 9
+  DB<2> c
+main::(3.pl:9):		@line=split(/;/,$line);
+  DB<2> print @line
+
+  DB<3> print $line
+итого;9672;
+
+  DB<4> b 19
+  DB<5> c
+main::(3.pl:9):		@line=split(/;/,$line);
+  DB<5> B 9
+  DB<6> c
+main::(3.pl:19):	print Dumper($list);
+  DB<6> print $list
+ARRAY(0x98ee1fc)
+  DB<7> print Dumper($list)
+$VAR1 = [
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '0',
+            'сент.',
+            '25',
+            '23:01',
+            '1perl~ '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '87',
+            'сент.',
+            '26',
+            '01:08',
+            '1perl.pl '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '39',
+            'сент.',
+            '25',
+            '23:12',
+            '1perl.pl~ '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '373',
+            'апр.',
+            '12',
+            '23:23',
+            '1.py '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '299',
+            'апр.',
+            '12',
+            '23:23',
+            '1.py~ '
+          ],
+          [
+            'drwxrwxr-x',
+            '7',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'янв.',
+            '25',
+            '2016',
+            'Alex '
+          ],
+          [
+            'drwxrwxr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'сент.',
+            '16',
+            '11:42',
+            'backup_32 '
+          ],
+          [
+            '-rw-r--r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '203812',
+            'марта',
+            '14',
+            '2016',
+            'bfemale_14-18.txt '
+          ],
+          [
+            '-rw-r--r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '239802',
+            'марта',
+            '14',
+            '2016',
+            'bfemale_50.txt '
+          ],
+          [
+            '-rw-r--r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '320043',
+            'марта',
+            '14',
+            '2016',
+            'bmale_14-18.txt '
+          ],
+          [
+            'drwxrwxr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'февр.',
+            '29',
+            '2016',
+            'book '
+          ],
+          [
+            'drwxrwxr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '229376',
+            'сент.',
+            '22',
+            '10:21',
+            'deja-dup '
+          ],
+          [
+            '-rw-r--r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '158',
+            'авг.',
+            '15',
+            '09:38',
+            'drupal.conf '
+          ],
+          [
+            'drwxrwxr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'февр.',
+            '29',
+            '2016',
+            'english '
+          ],
+          [
+            '-rw-r--r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '8980',
+            'авг.',
+            '31',
+            '2015',
+            'examples.desktop '
+          ],
+          [
+            'drwxr-xr-x',
+            '9',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '15',
+            '10:05',
+            'first drupal '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '492542',
+            'июля',
+            '24',
+            '2013',
+            'mibew165.zip '
+          ],
+          [
+            'drwxrwxr-x',
+            '7',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '21',
+            '21:03',
+            'new_work '
+          ],
+          [
+            'drwxrwxr-x',
+            '7',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '18',
+            '19:33',
+            'PhpStorm-162.1121.38 '
+          ],
+          [
+            'drwxrwxrwx',
+            '4',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'июля',
+            '30',
+            '20:08',
+            'public_html '
+          ],
+          [
+            'drwxr-xr-x',
+            '6',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'февр.',
+            '5',
+            '2016',
+            'rapidminer-studio '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '71',
+            'нояб.',
+            '1',
+            '2015',
+            'SqlViewerHistory.props '
+          ],
+          [
+            'drwxr-xr-x',
+            '5',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'дек.',
+            '10',
+            '2015',
+            'Sublime Text 2 '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '8240536',
+            'апр.',
+            '6',
+            '15:32',
+            'svm.zip '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '0',
+            'сент.',
+            '26',
+            '22:41',
+            'text.txt '
+          ],
+          [
+            'drwxrwxr-x',
+            '5',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'июля',
+            '20',
+            '17:01',
+            'tmp '
+          ],
+          [
+            'drwx------',
+            '3',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'февр.',
+            '5',
+            '2016',
+            'tor-browser_ru '
+          ],
+          [
+            'drwxrwxr-x',
+            '7',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'сент.',
+            '25',
+            '21:54',
+            'university '
+          ],
+          [
+            '-rw-rw-r--',
+            '1',
+            'vitalii',
+            'vitalii',
+            '10299',
+            'нояб.',
+            '19',
+            '2015',
+            'weka.log '
+          ],
+          [
+            'drwxrwxr-x',
+            '20',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'июня',
+            '30',
+            '19:25',
+            'work '
+          ],
+          [
+            'drwxrwxr-x',
+            '13',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'июля',
+            '6',
+            '18:58',
+            'Yandex.Disk '
+          ],
+          [
+            'drwxr-xr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '31',
+            '2015',
+            'Видео '
+          ],
+          [
+            'drwxr-xr-x',
+            '3',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'сент.',
+            '4',
+            '20:12',
+            'Документы '
+          ],
+          [
+            'drwxr-xr-x',
+            '41',
+            'vitalii',
+            'vitalii',
+            '20480',
+            'сент.',
+            '26',
+            '22:16',
+            'Загрузки '
+          ],
+          [
+            'drwxr-xr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'июля',
+            '6',
+            '18:45',
+            'Изображения '
+          ],
+          [
+            'drwxr-xr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '31',
+            '2015',
+            'Музыка '
+          ],
+          [
+            'drwxr-xr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '31',
+            '2015',
+            'Общедоступные '
+          ],
+          [
+            'drwxr-xr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'дек.',
+            '26',
+            '2015',
+            'Рабочий стол '
+          ],
+          [
+            'drwxrwxr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'сент.',
+            '16',
+            '11:37',
+            'с флешки '
+          ],
+          [
+            'drwxr-xr-x',
+            '2',
+            'vitalii',
+            'vitalii',
+            '4096',
+            'авг.',
+            '31',
+            '2015',
+            'Шаблоны '
+          ]
+        ];
+
+  DB<8> q
+
