@@ -1,2 +1,2 @@
-ls -l | perl -ane ' foreach my $i (0 .. $#F){if($i<8){print $F[$i].";";}else{print $F[$i]." " }  } print "\n"' > text.txt
+ls -l | perl -ane 'if($i==0){$i=1;next;} foreach my $i (0 .. $#F){if($i<8){print $F[$i].";";}else{print $F[$i]." " }  } print "\n"' > text.txt
 

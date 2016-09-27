@@ -3,8 +3,6 @@ use Data::Dumper;
 open(F1,"text.txt");
 my $list= [];
 $line=<F1>;
-#убираю первую строчку из вывода - Итого 9672
-$line=<F1>;
 while($line){
 	my @local_list = [];
 	
