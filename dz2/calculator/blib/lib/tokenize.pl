@@ -28,16 +28,48 @@ no warnings 'experimental';
 sub tokenize {
 	chomp(my $expr = shift);
 	my @res;
+	my @list = split //,$expr;
+	my %hash = ('+' => '1',
+				'-' => '1',
+				'*' => '1',
+				'/' => '1')
+	eval {
+		# do something risky...
+		my $n = 0;
+		foreach my $i (0 .. $#list) {
+			if($i<$#list-2){
+				if( $hash{$i} == 1 and $hash{$i+1} == 1 and $hash{$i+1} == 1  ){
+					die 'Error'
+				}
 
-	my @split_expr = split//,$expr;
+			}
+		}
+		if($list[0]=='-'){
+			$list[0] = 'U-';
+		}
+		if($list[0]=='+'){
+			$list[0] = 'U+';
+		}
+		foreach my $i (1 .. $#list) {
 
-	for(@split_expr){
-		
+			if ( ( $list[$i-1]=='-' )and( ($list[$i]=='-')or($list[$i]=='+') ) ){
+				$list[$i] = 'U-';
+			}
+			if ( ( $list[$i-1]=='+' )and( ($list[$i]=='-')or($list[$i]=='+') ) ){
+				$list[$i] = 'U+';
+			}
 
+		}
+	};
+	if ($@) {
+		# handle failure...
+		die $@;
 	}
-
+	
+	# ...
 
 	return \@res;
 }
 
 1;
+
