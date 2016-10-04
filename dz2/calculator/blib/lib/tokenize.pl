@@ -31,7 +31,10 @@ sub tokenize {
 
 	my @split_expr = split//,$expr;
 
-	for(@split_expr){}
+	for(@split_expr){
+		
+
+	}
 
 
 	return \@res;
